@@ -1,0 +1,15 @@
+BBPlay is a third-party Bilibili player application designed specifically for children, providing a safe and simple video viewing experience. The application supports both mobile and desktop devices, with complete video playback, history, favorites and other functions.
+
+Key Features:
+• Video playback with landscape and portrait modes
+• History tracking
+• Favorites management
+• Time slot viewing
+• Search functionality
+• QR code login
+• AI summary of videos
+• Subtitle support
+• Playback controls
+• Multi-platform support (Android, iOS, Windows, macOS)
+
+This app is built with Flutter and is completely open source. It contains no ads or tracking, providing a safe environment for children to enjoy videos.
