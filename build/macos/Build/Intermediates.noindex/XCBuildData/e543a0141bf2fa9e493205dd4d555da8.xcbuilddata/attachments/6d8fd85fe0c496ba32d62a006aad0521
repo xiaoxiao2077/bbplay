@@ -1,0 +1,5 @@
+
+module wakelock_plus.Swift {
+  header "wakelock_plus-Swift.h"
+  requires objc
+}

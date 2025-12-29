@@ -1,0 +1,5 @@
+
+module device_info_plus.Swift {
+  header "device_info_plus-Swift.h"
+  requires objc
+}

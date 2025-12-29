@@ -48,10 +48,6 @@ dependencies:
   # 加密
   crypto: ^3.0.3
   encrypt: ^5.0.3
-  # 视频播放器
-  media_kit: ^1.1.11 # Primary package.
-  media_kit_video: ^1.2.5 # For video rendering.
-  media_kit_libs_video: ^1.0.5
 
   # 进度条
   audio_video_progress_bar: ^2.0.3
@@ -76,6 +72,9 @@ dependencies:
   sqflite: ^2.3.3
   shared_preferences: ^2.5.3
   window_manager: ^0.5.1
+  media_kit_video: ^2.0.1
+  media_kit: ^1.2.6
+  media_kit_libs_video: ^1.0.7
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -87,19 +86,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-dependency_overrides:
-  media_kit:
-    git:
-      url: https://github.com/media-kit/media-kit
-      path: media_kit
-  media_kit_video:
-    git:
-      url: https://github.com/media-kit/media-kit
-      path: media_kit_video
-  media_kit_libs_video:
-    git:
-      url: https://github.com/media-kit/media-kit
-      path: libs/universal/media_kit_libs_video
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -115,7 +102,6 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/images/logo/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
@@ -126,14 +112,4 @@ flutter:
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
-  # example:
-  fonts:
-    - family: Jura-Bold
-      fonts:
-        - asset: assets/fonts/Jura-Bold.ttf
-    # - family: HarmonyOS
-    #   fonts:
-    #     - asset: assets/fonts/HarmonyOS_Sans_SC_Regular.ttf
-
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  

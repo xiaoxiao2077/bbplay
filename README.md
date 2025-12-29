@@ -1,27 +1,20 @@
 # BBPlay Flutter
 
 <div align="center">
-    <img width="200" height="200" src="https://github.com/guozhigq/pilipala/blob/main/assets/images/logo/logo_android.png">
+    <img width="200" height="200" src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/images/logo.png">
 </div>
 
 <div align="center">
     <h1>BBPlay</h1>
 </div>
-
-<div align="center">
-    <img src="https://img.shields.io/github/repo-size/bergerx/bbplay_flutter" alt="GitHub repo size">
-    <img src="https://img.shields.io/github/stars/bergerx/bbplay_flutter" alt="GitHub Repo stars">
-    <img src="https://img.shields.io/github/downloads/bergerx/bbplay_flutter/total" alt="GitHub all releases">
-</div>
-
 <div align="center">
     <p>使用 Flutter 开发的 BiliBili 第三方客户端，专为儿童设计</p>
 </div>
 
 <div align="center">
-    <img src="https://github.com/guozhigq/pilipala/blob/main/assets/screenshots/510shots_so.png" width="30%" alt="screenshot-1" />
-    <img src="https://github.com/guozhigq/pilipala/blob/main/assets/screenshots/174shots_so.png" width="30%" alt="screenshot-2" />
-    <img src="https://github.com/guozhigq/pilipala/blob/main/assets/screenshots/850shots_so.png" width="30%" alt="screenshot-3" />
+    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/7abd2.png" width="30%" alt="screenshot-1" />
+    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/5bf96.png" width="30%" alt="screenshot-2" />
+    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/ff500.png" width="30%" alt="screenshot-3" />
 </div>
 
 ## 功能特性
@@ -53,11 +46,38 @@ BBPlay 是一个第三方的 Bilibili 播放器应用，专为儿童设计，提
 ## 开发环境
 
 ```bash
-[✓] Flutter (Channel stable, 3.x.x, on macOS/Linux/Windows)
+[✓] Flutter (Channel stable, 3.27.1, on macOS/Windows)
 [✓] Android toolchain - develop for Android devices
 [✓] Xcode - develop for iOS and macOS (if applicable)
-[✓] Chrome - develop for the web
-[✓] Android Studio (version X.X)
-[✓] VS Code (version X.X.X)
+[✓] Android Studio (version 2025.1)
+[✓] VS Code (version 1.105.1)
 [✓] Connected device (3 available)
 [✓] Network resources
+
+## 下载
+
+可以通过右侧 Releases 进行下载或拉取代码到本地进行编译
+
+### 从 F-Droid 安装
+
+<a href="https://f-droid.org/packages/com.xiaoxiaov.bbplay">
+    <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on-zh-cn.png"
+    alt="Get it on F-Droid"
+    height="80">
+</a>
+
+## 声明
+
+此项目 (PiliPala) 是个人为了兴趣而开发, 仅用于学习和测试。
+所用 API 皆从官方网站收集, 不提供任何破解内容。
+
+感谢使用
+
+## 致谢
+
+- [bilibili-API-collect](https://github.com/SocialSisterYi/bilibili-API-collect)
+- [flutter_meedu_videoplayer](https://github.com/zezo357/flutter_meedu_videoplayer)
+- [media-kit](https://github.com/media-kit/media-kit)
+- [dio](https://pub.dev/packages/dio)
+- [pilipala](https://github.com/guozhigq/pilipala)
+- 等等
