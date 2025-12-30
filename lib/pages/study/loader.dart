@@ -5,12 +5,20 @@ import '/model/video/item.dart';
 import '/service/video_service.dart';
 
 class SubjectVideoLoader extends LoadingMoreBase<VideoItem> {
-  SubjectVideoLoader(this.subjectName);
+  SubjectVideoLoader(this.subjectName, this._grade);
 
   final String subjectName;
+  String _grade;
+  set grade(String newGrade) {
+    if (_grade != newGrade) {
+      _grade = newGrade;
+      reset();
+    }
+  }
+
   int _pageIndex = 1;
   bool _hasMore = true;
-  static const int _pageSize = 20;
+  static const int _pageSize = 10;
 
   @override
   bool get hasMore => _hasMore;
@@ -30,6 +38,7 @@ class SubjectVideoLoader extends LoadingMoreBase<VideoItem> {
 
     final response = await VideoService.loadSubjectList(
       subjectName,
+      _grade,
       page: _pageIndex,
       psize: _pageSize,
     );
@@ -60,8 +69,4 @@ class SubjectVideoLoader extends LoadingMoreBase<VideoItem> {
     _hasMore = true;
     clear();
   }
-
-  int get loadedCount => length;
-  int get currentPage => _pageIndex;
-  bool get isFirstPage => _pageIndex == 1;
 }

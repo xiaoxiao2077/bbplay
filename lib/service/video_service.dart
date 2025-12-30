@@ -109,7 +109,8 @@ class VideoService {
 
   ///学科视频
   static Future<ApiResponse<List<VideoItem>>> loadSubjectList(
-    String subject, {
+    String subject,
+    String grade, {
     int page = 1,
     int psize = 10,
   }) async {

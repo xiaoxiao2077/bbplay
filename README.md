@@ -1,4 +1,4 @@
-# BBPlay Flutter
+# 小晓播放器
 
 <div align="center">
     <img width="200" height="200" src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/images/logo.png">
@@ -53,7 +53,7 @@ BBPlay 是一个第三方的 Bilibili 播放器应用，专为儿童设计，提
 [✓] VS Code (version 1.105.1)
 [✓] Connected device (3 available)
 [✓] Network resources
-
+```
 ## 下载
 
 可以通过右侧 Releases 进行下载或拉取代码到本地进行编译

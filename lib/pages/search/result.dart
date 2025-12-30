@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 
 import './loader.dart';
-import '/utils/navigate.dart';
+import '/utils/function.dart';
 import '/config/constants.dart';
 import '/model/video/item.dart';
 import '/widgets/vertical_listtile.dart';
@@ -76,8 +76,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
                             (BuildContext context, VideoItem item, int index) {
                           return VerticalListTile(
                             item: item,
-                            onTap: (item) =>
-                                Navigate.goVideoPlay(context, item),
+                            onTap: (item) => goVideoPlay(context, item),
                           );
                         },
                         sourceList: searchLoader,

@@ -74,6 +74,9 @@ class _SettingState extends State<SettingPage> {
   Future<void> _handleLogin() async {
     if (!_isWideScreen) {
       await context.push('/login');
+      if (Setting.hasLogin) {
+        setState(() => _hasLogin = true);
+      }
     } else {
       var hasLogin = await showDialog(
         context: context,

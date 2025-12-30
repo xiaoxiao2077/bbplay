@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'loader.dart';
 import 'search.dart';
 import '/model/setting.dart';
-import '/utils/navigate.dart';
+import '/utils/function.dart';
 import '/model/video/item.dart';
 import '/config/constants.dart';
 import '/widgets/wallclock.dart';
@@ -140,7 +140,7 @@ class _DesktopHomeState extends State<DesktopHomePage> {
                 itemBuilder: (BuildContext context, VideoItem item, int index) {
                   return VerticalListTile(
                     item: item,
-                    onTap: (item) => Navigate.goVideoPlay(context, item),
+                    onTap: (item) => goVideoPlay(context, item),
                   );
                 },
                 sourceList: listLoader,

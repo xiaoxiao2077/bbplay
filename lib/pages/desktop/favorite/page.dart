@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
-import '/utils/navigate.dart';
 import '/utils/function.dart';
 import '/model/video/item.dart';
 import '/service/favorite_service.dart';
@@ -210,7 +209,7 @@ class _FavoritePageState extends State<DesktopFavoritePage> {
                             if (isSelecting) {
                               setState(() => item.checked = !item.checked);
                             } else {
-                              Navigate.goVideoPlay(context, item);
+                              goVideoPlay(context, item);
                             }
                           },
                           onSelect: (item) {

@@ -302,7 +302,7 @@ class _SearchBarState<T> extends State<HomeSearchBar<T>>
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final AppBarTheme appBarTheme = AppBarTheme.of(context) as AppBarTheme;
+    final AppBarThemeData appBarTheme = AppBarTheme.of(context);
     final ScaffoldState? scaffold = Scaffold.maybeOf(context);
 
     Color? backgroundColor = widget.backgroundColor ??

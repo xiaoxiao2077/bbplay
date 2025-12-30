@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:loading_more_list/loading_more_list.dart';
+import 'package:provider/provider.dart';
 
+import 'page.dart';
 import 'loader.dart';
-import '/utils/navigate.dart';
+import '/utils/function.dart';
 import '/model/video/item.dart';
 import '/widgets/horizon_listtile.dart';
 import '/widgets/loading_more_indicator.dart';
@@ -17,16 +19,11 @@ class StudyTabView extends StatefulWidget {
 
 class _TabViewState extends State<StudyTabView>
     with AutomaticKeepAliveClientMixin {
-  late final SubjectVideoLoader _videoLoader;
+  late final SubjectVideoLoader _videoLoader =
+      SubjectVideoLoader(widget.subjectName, '');
 
   @override
   bool get wantKeepAlive => true;
-
-  @override
-  void initState() {
-    super.initState();
-    _videoLoader = SubjectVideoLoader(widget.subjectName);
-  }
 
   @override
   void dispose() {
@@ -41,9 +38,14 @@ class _TabViewState extends State<StudyTabView>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return RefreshIndicator(
-      onRefresh: _refreshData,
-      child: _buildContent(),
+    return Consumer<GradeNotifier>(
+      builder: (context, gradeNotifier, child) {
+        _videoLoader.grade = gradeNotifier.selectedGrade;
+        return RefreshIndicator(
+          onRefresh: _refreshData,
+          child: _buildContent(),
+        );
+      },
     );
   }
 
@@ -78,9 +80,7 @@ class _TabViewState extends State<StudyTabView>
     return HorizonListTile(
       item: item,
       selectMode: false,
-      onTab: (item) => Navigate.goVideoPlay(context, item),
-      onLongPress: () {},
-      onSelect: (item) {},
+      onTab: (item) => goVideoPlay(context, item),
     );
   }
 

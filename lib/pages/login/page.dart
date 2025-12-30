@@ -16,7 +16,7 @@ class LoginFormPage extends StatefulWidget {
   State<StatefulWidget> createState() => _LoginFormState();
 }
 
-class _LoginFormState extends State<LoginFormPage> {
+class _LoginFormState extends State<LoginFormPage> with WidgetsBindingObserver {
   final GlobalKey<FormState> _telFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> _smsFormKey = GlobalKey<FormState>();
 
@@ -37,6 +37,7 @@ class _LoginFormState extends State<LoginFormPage> {
   void initState() {
     super.initState();
     _checkLoginStatus();
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
@@ -45,10 +46,29 @@ class _LoginFormState extends State<LoginFormPage> {
     _telField.dispose();
     _smsField.dispose();
     _pageController.dispose();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.resumed) {
+      // 应用从前台恢复时检查登录状态
+      _checkAndExitIfLoggedIn();
+    }
+  }
+
   void _checkLoginStatus() {
+    if (Setting.hasLogin) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.of(context).pop();
+      });
+    }
+  }
+
+  // 添加一个方法来检查登录状态并退出页面
+  void _checkAndExitIfLoggedIn() {
     if (Setting.hasLogin) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         Navigator.of(context).pop();
@@ -161,7 +181,6 @@ class _LoginFormState extends State<LoginFormPage> {
           _smsCountdown--;
         } else {
           _smsCanSend = true;
-          timer.cancel();
         }
       });
     });
@@ -169,22 +188,29 @@ class _LoginFormState extends State<LoginFormPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            _buildAppBar(),
-            Expanded(
-              child: PageView(
-                physics: const NeverScrollableScrollPhysics(),
-                controller: _pageController,
-                children: [
-                  _buildTelPage(),
-                  _buildSmsPage(),
-                ],
+    return WillPopScope(
+      onWillPop: () async {
+        // 检查是否已登录，如果是则返回true以允许退出
+        // 如果未登录则也允许退出
+        return true;
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              _buildAppBar(),
+              Expanded(
+                child: PageView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  controller: _pageController,
+                  children: [
+                    _buildTelPage(),
+                    _buildSmsPage(),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -271,7 +297,8 @@ class _LoginFormState extends State<LoginFormPage> {
     return Text(
       subtitle,
       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+            color:
+                Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
           ),
     );
   }
@@ -290,7 +317,7 @@ class _LoginFormState extends State<LoginFormPage> {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0),
           borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.outline.withOpacity(0.3),
+            color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.3),
           ),
         ),
         focusedBorder: OutlineInputBorder(
@@ -440,20 +467,16 @@ class _LoginFormState extends State<LoginFormPage> {
     showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-          content: ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxHeight: 460,
-              minHeight: 400,
-              maxWidth: 480,
-              minWidth: 400,
-            ),
-            child: const QRCodePopup(),
-          ),
+        return const Dialog(
+          constraints: BoxConstraints(maxHeight: 480),
+          child: QRCodePopup(),
         );
       },
-    );
+    ).then((result) {
+      // 检查扫码登录是否成功
+      if (result == true) {
+        _checkAndExitIfLoggedIn();
+      }
+    });
   }
 }

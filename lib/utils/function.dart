@@ -1,45 +1,18 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-regCate(String origin) {
-  String str = origin;
-  RegExp exp = RegExp('<[^>]*>([^<]*)</[^>]*>');
-  Iterable<Match> matches = exp.allMatches(origin);
-  for (Match match in matches) {
-    str = match.group(1)!;
+import '/model/video/item.dart';
+
+void goVideoPlay(BuildContext context, VideoItem item) {
+  if (Platform.isAndroid || Platform.isIOS) {
+    Map<String, dynamic> query = {'item': item};
+    context.push('/video/play', extra: query);
+  } else {
+    Map<String, dynamic> query = {'item': item};
+    context.push('/desktop/video/play', extra: query);
+    return;
   }
-  return str;
-}
-
-regTitle(String origin) {
-  RegExp exp = RegExp('<[^>]*>([^<]*)</[^>]*>');
-  List res = [];
-  origin.splitMapJoin(exp, onMatch: (Match match) {
-    String matchStr = match[0]!;
-    Map map = {'type': 'em', 'text': regCate(matchStr)};
-    res.add(map);
-    return regCate(matchStr);
-  }, onNonMatch: (String str) {
-    if (str != '') {
-      str = decodeHtmlEntities(str);
-      Map map = {'type': 'text', 'text': str};
-      res.add(map);
-    }
-    return str;
-  });
-  return res;
-}
-
-String decodeHtmlEntities(String title) {
-  return title
-      .replaceAll('&lt;', '<')
-      .replaceAll('&gt;', '>')
-      .replaceAll('&#34;', '"')
-      .replaceAll('&#39;', "'")
-      .replaceAll('&quot;', '"')
-      .replaceAll('&apos;', "'")
-      .replaceAll('&nbsp;', " ")
-      .replaceAll('&amp;', "&")
-      .replaceAll('&#x27;', "'");
 }
 
 Future<bool> showConfirmDialog(

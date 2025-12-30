@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 
 import './loader.dart';
-import '/utils/navigate.dart';
 import '/utils/function.dart';
 import '/model/video/item.dart';
 import '/widgets/horizon_listtile.dart';
@@ -142,7 +141,7 @@ class _HistoryPageState extends State<HistoryPage> {
             item.checked = !item.checked;
           });
         } else {
-          Navigate.goVideoPlay(context, item);
+          goVideoPlay(context, item);
         }
       },
       onLongPress: _toggleSelectMode,

@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 
 import './loader.dart';
-import '/utils/navigate.dart';
+import '/utils/function.dart';
 import '/model/video/item.dart';
 import '/config/constants.dart';
 import '/widgets/wallclock.dart';
@@ -65,8 +65,7 @@ class _HomeVideoState extends State<HomeVideoPage> {
                               int index) {
                             return VerticalListTile(
                               item: item,
-                              onTap: (item) =>
-                                  Navigate.goVideoPlay(context, item),
+                              onTap: (item) => goVideoPlay(context, item),
                             );
                           },
                           sourceList: dataLoader,

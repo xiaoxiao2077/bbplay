@@ -8,7 +8,7 @@
 PRODUCT_NAME = bbplay
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.xiaoxiao.bbplay.bbplay
+PRODUCT_BUNDLE_IDENTIFIER = com.xiaoxiaov.bbplay
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2025 com.xiaoxiao.bbplay. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2025 com.xiaoxiaov. All rights reserved.

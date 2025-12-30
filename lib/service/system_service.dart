@@ -125,7 +125,7 @@ class SystemService {
         udid = iosInfo.identifierForVendor; // iOS的设备ID
       } else if (Platform.isAndroid) {
         final androidInfo = await deviceInfo.androidInfo;
-        udid = androidInfo.serialNumber; // Android的设备ID
+        udid = androidInfo.id; // Android的设备ID
       } else if (Platform.isWindows) {
         final windowsInfo = await deviceInfo.windowsInfo;
         udid = windowsInfo.deviceId;

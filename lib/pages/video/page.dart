@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:auto_orientation/auto_orientation.dart';
+import 'package:auto_orientation_v2/auto_orientation_v2.dart';
 
 import '/player/agent.dart';
 import 'widgets/detail.dart';
@@ -12,8 +12,6 @@ import '/model/video/item.dart';
 import '/player/mobile_video.dart';
 import '/pages/video/related.dart';
 import '/service/history_service.dart';
-
-///视频是分横屏和竖屏两种情况，布局上只支持竖屏情况，如果遇到竖屏，考虑用全屏去切换，播放结束后退出全屏
 
 class VideoPlayPage extends StatefulWidget {
   final VideoItem item;

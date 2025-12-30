@@ -141,29 +141,38 @@ class _QRCodeState extends State<QRCodePopup> {
     Setting.save('hasLogin', true);
 
     SmartDialog.showToast('登录成功');
+
+    // 关闭弹窗并返回登录成功的标志
     if (mounted) {
-      Navigator.of(context).pop(true);
+      Navigator.of(context).pop(true); // 返回true表示登录成功
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _buildHeader(),
-              const SizedBox(height: 16),
-              _buildQrContainer(),
-              const SizedBox(height: 12),
-              _buildInstructions(),
-              const SizedBox(height: 12),
-              _buildStatusIndicator(),
-            ],
+    return WillPopScope(
+      onWillPop: () async {
+        _countdownTimer?.cancel();
+        _statusCheckTimer?.cancel();
+        return true;
+      },
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _buildHeader(),
+                const SizedBox(height: 16),
+                _buildQrContainer(),
+                const SizedBox(height: 12),
+                _buildInstructions(),
+                const SizedBox(height: 12),
+                _buildStatusIndicator(),
+              ],
+            ),
           ),
         ),
       ),
@@ -190,7 +199,8 @@ class _QRCodeState extends State<QRCodePopup> {
               tooltip: '刷新二维码',
             ),
             IconButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () =>
+                  Navigator.of(context).pop(false), // 返回false表示用户取消
               icon: const Icon(Icons.close),
               tooltip: '关闭',
             ),

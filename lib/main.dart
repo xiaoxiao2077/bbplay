@@ -93,6 +93,7 @@ class MobileApp extends StatelessWidget {
       supportedLocales: const [
         Locale('zh', 'CN'),
       ],
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

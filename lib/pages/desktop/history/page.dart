@@ -2,7 +2,6 @@ import 'package:pager/pager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
-import '/utils/navigate.dart';
 import '/utils/function.dart';
 import '/model/video/item.dart';
 import '/service/history_service.dart';
@@ -208,7 +207,7 @@ class _HistoryPageState extends State<DesktopHistoryPage> {
                               if (isSelecting) {
                                 setState(() => item.checked = !item.checked);
                               } else {
-                                Navigate.goVideoPlay(context, item);
+                                goVideoPlay(context, item);
                               }
                             },
                             onSelect: (item) {
