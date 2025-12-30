@@ -10,11 +10,25 @@
 <div align="center">
     <p>使用 Flutter 开发的 BiliBili 第三方客户端，专为儿童设计</p>
 </div>
-
+<h3>手机截图</h3>
 <div align="center">
-    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/7abd2.png" width="30%" alt="screenshot-1" />
-    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/5bf96.png" width="30%" alt="screenshot-2" />
-    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/ff500.png" width="30%" alt="screenshot-3" />
+    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/7abd2.png" 
+    width="30%" height="550"    
+    alt="screenshot-1" />
+    &nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/5bf96.png" 
+    width="30%" height="550" alt="screenshot-2" />
+    &nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/ff500.png"
+     width="30%" height="550" alt="screenshot-3" />
+</div>
+<h3>电脑截图</h3>
+<div align="center">
+    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/desktop-fbb9.png" width="30%" alt="screenshot-1" />
+    &nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/desktop-9a25.png" width="30%" alt="screenshot-2" />
+    &nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/xiaoxiao2077/bbplay/blob/main/assets/screenshots/desktop-fbb9.png" width="30%" alt="screenshot-3" />
 </div>
 
 ## 功能特性
